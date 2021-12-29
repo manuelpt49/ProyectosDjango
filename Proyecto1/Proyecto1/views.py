@@ -12,6 +12,14 @@ def saludo(request): #Primera vista
     #return HttpResponse(documento)
     return render(request, "saludo.html", ctx)
 
+def curso1(request):
+    fecha_actual =datetime.datetime.now()
+    return render(request, "Curso1.html", {"fecha":fecha_actual})
+
+def cursoCSS(request):
+    fecha_actual =datetime.datetime.now()
+    return render(request, "CursoCSS.html", {"nombre":"Manuel"})
+
 def despedida(request):
     return HttpResponse("Adiós") 
 
