@@ -1,8 +1,16 @@
 from django.http import HttpResponse
 import datetime
+from django.template.loader import get_template
+from django.shortcuts import render
+
 
 def saludo(request): #Primera vista
-    return HttpResponse("Hola alumnos")
+
+    #doc_externo = get_template('saludo.html')    
+    ctx = {"nombre_persona":"Manuel", "apellido_persona":"Perez", "temas":["plantillas", "Modelo"]} #Data to send to template, always as Dict
+    #documento = doc_externo.render(ctx)
+    #return HttpResponse(documento)
+    return render(request, "saludo.html", ctx)
 
 def despedida(request):
     return HttpResponse("Adiós") 
