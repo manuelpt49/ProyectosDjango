@@ -18,7 +18,8 @@ class Articulos(models.Model):
     precio = models.IntegerField()
 
     def __str__(self):
-        return (self.nombre+ " pertenece a la sección de "+ self.seccion+ " y tiene un precio de "+ str(self.precio))
+        return 'El nombre %s, la sección es %s y el precio es %s' % (self.nombre,self.seccion, str(self.precio))
+            
 
 
 class Pedidos(models.Model):
