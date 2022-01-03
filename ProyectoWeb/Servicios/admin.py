@@ -5,6 +5,7 @@ from django.contrib import admin
 from Servicios.models import Servicio
 
 class ServicioAdmin (admin.ModelAdmin):
-    list_display = ("titulo", "contenido", "created", "updated")
+    readonly_fields = ('created', 'updated') #Fields showed in panel
+    list_display = ("titulo", "contenido", "imagen", "created", "updated")
 
 admin.site.register(Servicio, ServicioAdmin)
