@@ -8,26 +8,32 @@
 
     {% block content %}
     
-    <section class="news pt-0">
-        <div class="container mt-md-5">
-          <h2 class="mx-4 my-0 text-center">Recent News</h2>
-          <ul class="row d-lg-flex list-unstyled image-block justify-content-center px-lg-0 mx-lg-0">
-            {% for post in posts%}
-            <li class="col-lg-4 col-md-5 image-block full-width p-3">
-              <div class="image-block-inner">
-                <a class="mh-100" href="#">
-                  <img src="{{post.imagen.url}}" alt="LunarXP Wins Space Innovator of the Year Award" class="img-responsive w-100"></a>
-                <span class="hp-posts-cat">{{post.titulo}}</span>
-                <h4 class="mt-3"><a href="#">{{post.contenido}}</a></h4>
-                <!--  <p></p> -->
-                <a href="#" class="read-more">Read more ></a>
-                <h5>{{post.autor}}</h5>
-                <h6>{{post.categorias}}</h6>
-              </div><!-- .image-block-inner -->
-            </li>
-            {% endfor %}
-          </ul>
+    {% for post in posts%}
+    <section class="page-section clearfix">
+        <div class="container">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style="width: 30%;">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+            <h2 class="section-heading mb-4" >
+                <span class="section-heading-lower">{{post.titulo}}</span>
+                <span class="section-heading-upper">{{post.contenido}}</span>
+            </h2>
+            <h5>{{post.autor}}</h5>
+            
+            </div>
         </div>
-      </section>
-        
+        </div>
+    </section>
+    {% endfor %}
+
+    <section>
+        <div style="width:75%; margin: auto; text-align: center; color: white;">
+            Categorías:
+            <br>
+            {% for categoria in categorias %}
+                {{categoria}} 
+            {% endfor %}
+        </div>
+    </section>
+           
     {% endblock %}
