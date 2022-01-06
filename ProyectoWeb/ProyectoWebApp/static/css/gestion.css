@@ -287,6 +287,7 @@ ul.errorlist{
   color: white;
   font-weight: bold;
   text-decoration: underline;
+
 }
 
 .contenedorFormulario{
@@ -304,4 +305,5 @@ ul.errorlist{
 
 .contenedorFormulario table{
   color: #ffffff;
+
 }
