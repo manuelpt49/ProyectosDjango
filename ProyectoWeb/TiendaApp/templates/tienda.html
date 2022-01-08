@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+
+    {% load static %}
+
+    {% block title %}
+        Tienda
+    {% endblock %} 
+
+    {% block content %}
+    {% for producto in productos %}
+    <section class="page-section clearfix">
+        <div class="container">
+        <div class="intro">
+            {% if producto.imagen %}
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{producto.imagen.url}}" alt="" style="width: 30%;">
+            {% else %}
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="" alt="No disponible" style="width: 30%; color: white;">
+            {% endif %}
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+            <h2 class="section-heading mb-4" >
+                <span class="section-heading-lower">{{producto.nombre}}</span>
+                <span class="section-heading-lower">Stock: {{producto.stock}}</span>
+                <span class="section-heading-upper">Precio: ${{producto.precio}}</span>
+            </h2>
+            
+            </div>
+        </div>
+        </div>
+    </section>
+    {% endfor %}
+
+    <section>
+        <div style="width:75%; margin: auto; text-align: center; color: white;">
+            Categorías:
+            <br>
+            {% for categoria in categorias %}
+                <a class="linksCategorias" href="{% url 'Categoria' categoria.id %}">{{categoria.nombre}}</a>&nbsp; &nbsp;
+            {% endfor %}
+        </div>
+    </section>
+    {% endblock %}

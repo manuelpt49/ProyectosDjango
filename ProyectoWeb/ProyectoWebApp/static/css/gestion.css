@@ -287,4 +287,23 @@ ul.errorlist{
   color: white;
   font-weight: bold;
   text-decoration: underline;
+
+}
+
+.contenedorFormulario{
+  background-color: rgba(24, 64, 8, 0.8);
+  width: 80%;
+  margin: 20px auto;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.contenedorFormulario form{
+  display: inline-block;
+}
+
+.contenedorFormulario table{
+  color: #ffffff;
+
 }
