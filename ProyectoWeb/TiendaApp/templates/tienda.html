@@ -7,27 +7,37 @@
     {% endblock %} 
 
     {% block content %}
-    {% for producto in productos %}
-    <section class="page-section clearfix">
-        <div class="container">
-        <div class="intro">
-            {% if producto.imagen %}
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{producto.imagen.url}}" alt="" style="width: 30%;">
-            {% else %}
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="" alt="No disponible" style="width: 30%; color: white;">
-            {% endif %}
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-            <h2 class="section-heading mb-4" >
-                <span class="section-heading-lower">{{producto.nombre}}</span>
-                <span class="section-heading-lower">Stock: {{producto.stock}}</span>
-                <span class="section-heading-upper">Precio: ${{producto.precio}}</span>
-            </h2>
+    
+    <div class="container">
+        <div style="float: right;">
             
+
+            {% include "widget.html" %}
+        </div>
+        <div class="row">
+            {% for producto in productos %}
+            <div class="col-md-3">
+                <div class="card" style="width:100%; margin: 20px 0;">
+                    {% if producto.imagen %}
+                        <img src="{{producto.imagen.url}}" alt="" style="height: 250px;">
+                    {% else %}
+                        <img src="" alt="No disponible" style="color: white;">
+                    {% endif %}
+                    <div class="card-body" style="text-align: center;">
+                        <h4 class="card-title">{{producto.nombre}}</h6>
+                        <p class="card-text">$ {{producto.precio}}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'carrito:Agregar' producto.id %}" class="btn btn-success">Agregar</a>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        </div>
-    </section>
-    {% endfor %}
+    </div>
+
+    
+   
 
     <section>
         <div style="width:75%; margin: auto; text-align: center; color: white;">
